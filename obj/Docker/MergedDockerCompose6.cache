@@ -1,0 +1,41 @@
+services:
+  microservicecourse.api.customers:
+    build:
+      context: C:\Users\josuedbo\source\repos\Export\MicroserviceCourse\MicroserviceCourse
+      dockerfile: MicroserviceCourse.Api.Customers/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: microservicecourseapicustomers
+    ports:
+    - target: 80
+    - target: 443
+    volumes:
+    - C:\Users\josuedbo\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+  microservicecourse.api.orders:
+    build:
+      context: C:\Users\josuedbo\source\repos\Export\MicroserviceCourse\MicroserviceCourse
+      dockerfile: MicroserviceCourse.Api.Orders/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: microservicecourseapiorders
+    ports:
+    - target: 80
+    - target: 443
+    volumes:
+    - C:\Users\josuedbo\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+  microservicecourse.api.products:
+    build:
+      context: C:\Users\josuedbo\source\repos\Export\MicroserviceCourse\MicroserviceCourse
+      dockerfile: MicroserviceCourse.Api.Products/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: microservicecourseapiproducts
+    ports:
+    - target: 80
+    - target: 443
+    volumes:
+    - C:\Users\josuedbo\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+version: '3.4'

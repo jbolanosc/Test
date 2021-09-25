@@ -1,0 +1,157 @@
+services:
+  microservicecourse.api.customers:
+    build:
+      context: C:\Users\josuedbo\source\repos\Export\MicroserviceCourse\MicroserviceCourse
+      dockerfile: MicroserviceCourse.Api.Customers/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: MicroserviceCourse.Api.Customers
+      target: base
+    container_name: MicroserviceCourse.Api.Customers
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: ''
+    image: microservicecourseapicustomers:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/bin/Debug/net5.0/MicroserviceCourse.Api.Customers.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - published: 6002
+      target: 80
+    - target: 80
+    - published: 6012
+      target: 443
+    - target: 443
+    tty: true
+    volumes:
+    - C:\Users\josuedbo\source\repos\Export\MicroserviceCourse\MicroserviceCourse\MicroserviceCourse.Api.Customers:/app:rw
+    - C:\Users\josuedbo\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\josuedbo\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\josuedbo\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Users\josuedbo\.nuget\packages:/root/.nuget/packages:ro
+    - C:\Users\josuedbo\source\repos\Export\MicroserviceCourse\MicroserviceCourse:/src:rw
+  microservicecourse.api.orders:
+    build:
+      context: C:\Users\josuedbo\source\repos\Export\MicroserviceCourse\MicroserviceCourse
+      dockerfile: MicroserviceCourse.Api.Orders/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: MicroserviceCourse.Api.Orders
+      target: base
+    container_name: MicroserviceCourse.Api.Orders
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: ''
+      Services__Customer: http://microservicecourse.api.customer
+      Services__Order: http://microservicecourse.api.order
+      Services__Products: http://microservicecourse.api.products
+    image: microservicecourseapiorders:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/bin/Debug/net5.0/MicroserviceCourse.Api.Orders.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - published: 6003
+      target: 80
+    - target: 80
+    - published: 6013
+      target: 443
+    - target: 443
+    tty: true
+    volumes:
+    - C:\Users\josuedbo\source\repos\Export\MicroserviceCourse\MicroserviceCourse\MicroserviceCourse.Api.Orders:/app:rw
+    - C:\Users\josuedbo\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\josuedbo\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\josuedbo\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Users\josuedbo\.nuget\packages:/root/.nuget/packages:ro
+    - C:\Users\josuedbo\source\repos\Export\MicroserviceCourse\MicroserviceCourse:/src:rw
+  microservicecourse.api.products:
+    build:
+      context: C:\Users\josuedbo\source\repos\Export\MicroserviceCourse\MicroserviceCourse
+      dockerfile: MicroserviceCourse.Api.Products/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: MicroserviceCourse.Api.Products
+      target: base
+    container_name: MicroserviceCourse.Api.Products
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: ''
+    image: microservicecourseapiproducts:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/bin/Debug/net5.0/MicroserviceCourse.Api.Products.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - published: 6001
+      target: 80
+    - target: 80
+    - published: 6011
+      target: 443
+    - target: 443
+    tty: true
+    volumes:
+    - C:\Users\josuedbo\source\repos\Export\MicroserviceCourse\MicroserviceCourse\MicroserviceCourse.Api.Products:/app:rw
+    - C:\Users\josuedbo\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\josuedbo\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\josuedbo\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Users\josuedbo\.nuget\packages:/root/.nuget/packages:ro
+    - C:\Users\josuedbo\source\repos\Export\MicroserviceCourse\MicroserviceCourse:/src:rw
+  microservicecourse.api.search:
+    build:
+      context: C:\Users\josuedbo\source\repos\Export\MicroserviceCourse\MicroserviceCourse
+      dockerfile: MicroserviceCourse.Api.Search/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: MicroserviceCourse.Api.Search
+      target: base
+    container_name: MicroserviceCourse.Api.Search
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: ''
+    image: microservicecourseapisearch:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages  "/app/bin/Debug/net5.0/MicroserviceCourse.Api.Search.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - published: 6004
+      target: 80
+    - target: 80
+    - published: 6014
+      target: 443
+    - target: 443
+    tty: true
+    volumes:
+    - C:\Users\josuedbo\source\repos\Export\MicroserviceCourse\MicroserviceCourse\MicroserviceCourse.Api.Search:/app:rw
+    - C:\Users\josuedbo\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\josuedbo\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\josuedbo\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Users\josuedbo\.nuget\packages:/root/.nuget/packages:ro
+    - C:\Users\josuedbo\source\repos\Export\MicroserviceCourse\MicroserviceCourse:/src:rw
+version: '3.4'

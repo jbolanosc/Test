@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace MicroserviceCourse.Api.Products.DB
+{
+    public class Product
+    {
+        public int id { get; set; }
+
+        public string name { get; set; }
+
+       public decimal price { get; set; }
+
+        public int inventory { get; set; }
+    }
+}

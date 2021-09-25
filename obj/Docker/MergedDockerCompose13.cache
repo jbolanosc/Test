@@ -1,0 +1,70 @@
+services:
+  microservicecourse.api.customers:
+    build:
+      context: C:\Users\josuedbo\source\repos\Export\MicroserviceCourse\MicroserviceCourse
+      dockerfile: MicroserviceCourse.Api.Customers/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: microservicecourseapicustomers
+    ports:
+    - published: 6002
+      target: 80
+    - target: 80
+    - published: 6012
+      target: 443
+    - target: 443
+    volumes:
+    - C:\Users\josuedbo\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+  microservicecourse.api.orders:
+    build:
+      context: C:\Users\josuedbo\source\repos\Export\MicroserviceCourse\MicroserviceCourse
+      dockerfile: MicroserviceCourse.Api.Orders/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: microservicecourseapiorders
+    ports:
+    - published: 6003
+      target: 80
+    - target: 80
+    - published: 6013
+      target: 443
+    - target: 443
+    volumes:
+    - C:\Users\josuedbo\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+  microservicecourse.api.products:
+    build:
+      context: C:\Users\josuedbo\source\repos\Export\MicroserviceCourse\MicroserviceCourse
+      dockerfile: MicroserviceCourse.Api.Products/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: microservicecourseapiproducts
+    ports:
+    - published: 6001
+      target: 80
+    - target: 80
+    - published: 6011
+      target: 443
+    - target: 443
+    volumes:
+    - C:\Users\josuedbo\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+  microservicecourse.api.search:
+    build:
+      context: C:\Users\josuedbo\source\repos\Export\MicroserviceCourse\MicroserviceCourse
+      dockerfile: MicroserviceCourse.Api.Search/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: microservicecourseapisearch
+    ports:
+    - published: 6004
+      target: 80
+    - target: 80
+    - published: 6014
+      target: 443
+    - target: 443
+    volumes:
+    - C:\Users\josuedbo\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+version: '3.4'

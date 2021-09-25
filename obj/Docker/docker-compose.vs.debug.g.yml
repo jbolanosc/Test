@@ -1,0 +1,113 @@
+version: '3.4'
+
+services:
+  microservicecourse.api.customers:
+    image: microservicecourseapicustomers:dev
+    container_name: MicroserviceCourse.Api.Customers
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "MicroserviceCourse.Api.Customers"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
+      - NUGET_FALLBACK_PACKAGES=
+    volumes:
+      - C:\Users\josuedbo\source\repos\Export\MicroserviceCourse\MicroserviceCourse\MicroserviceCourse.Api.Customers:/app
+      - C:\Users\josuedbo\source\repos\Export\MicroserviceCourse\MicroserviceCourse:/src
+      - C:\Users\josuedbo\vsdbg\vs2017u5:/remote_debugger:rw
+      - C:\Users\josuedbo\.nuget\packages\:/root/.nuget/packages:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages  \"/app/bin/Debug/net5.0/MicroserviceCourse.Api.Customers.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true
+  microservicecourse.api.orders:
+    image: microservicecourseapiorders:dev
+    container_name: MicroserviceCourse.Api.Orders
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "MicroserviceCourse.Api.Orders"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
+      - NUGET_FALLBACK_PACKAGES=
+    volumes:
+      - C:\Users\josuedbo\source\repos\Export\MicroserviceCourse\MicroserviceCourse\MicroserviceCourse.Api.Orders:/app
+      - C:\Users\josuedbo\source\repos\Export\MicroserviceCourse\MicroserviceCourse:/src
+      - C:\Users\josuedbo\vsdbg\vs2017u5:/remote_debugger:rw
+      - C:\Users\josuedbo\.nuget\packages\:/root/.nuget/packages:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages  \"/app/bin/Debug/net5.0/MicroserviceCourse.Api.Orders.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true
+
+  microservicecourse.api.products:
+    image: microservicecourseapiproducts:dev
+    container_name: MicroserviceCourse.Api.Products
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "MicroserviceCourse.Api.Products"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
+      - NUGET_FALLBACK_PACKAGES=
+    volumes:
+      - C:\Users\josuedbo\source\repos\Export\MicroserviceCourse\MicroserviceCourse\MicroserviceCourse.Api.Products:/app
+      - C:\Users\josuedbo\source\repos\Export\MicroserviceCourse\MicroserviceCourse:/src
+      - C:\Users\josuedbo\vsdbg\vs2017u5:/remote_debugger:rw
+      - C:\Users\josuedbo\.nuget\packages\:/root/.nuget/packages:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages  \"/app/bin/Debug/net5.0/MicroserviceCourse.Api.Products.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true
+
+  microservicecourse.api.search:
+    image: microservicecourseapisearch:dev
+    container_name: MicroserviceCourse.Api.Search
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "MicroserviceCourse.Api.Search"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
+      - NUGET_FALLBACK_PACKAGES=
+    volumes:
+      - C:\Users\josuedbo\source\repos\Export\MicroserviceCourse\MicroserviceCourse\MicroserviceCourse.Api.Search:/app
+      - C:\Users\josuedbo\source\repos\Export\MicroserviceCourse\MicroserviceCourse:/src
+      - C:\Users\josuedbo\vsdbg\vs2017u5:/remote_debugger:rw
+      - C:\Users\josuedbo\.nuget\packages\:/root/.nuget/packages:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages  \"/app/bin/Debug/net5.0/MicroserviceCourse.Api.Search.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true

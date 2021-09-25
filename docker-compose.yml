@@ -1,0 +1,43 @@
+version: '3.4'
+
+services:
+  microservicecourse.api.customers:
+    image: ${DOCKER_REGISTRY-}microservicecourseapicustomers
+    build:
+      context: .
+      dockerfile: MicroserviceCourse.Api.Customers/Dockerfile
+    ports:
+       - 6002:80
+       - 6012:443
+
+  microservicecourse.api.orders:
+    image: ${DOCKER_REGISTRY-}microservicecourseapiorders
+    build:
+      context: .
+      dockerfile: MicroserviceCourse.Api.Orders/Dockerfile
+    ports:
+       - 6003:80
+       - 6013:443
+    environment:
+        - Services__Products=http://microservicecourse.api.products
+        - Services__Customer=http://microservicecourse.api.customers
+        - Services__Order=http://microservicecourse.api.orders
+
+
+  microservicecourse.api.products:
+    image: ${DOCKER_REGISTRY-}microservicecourseapiproducts
+    build:
+      context: .
+      dockerfile: MicroserviceCourse.Api.Products/Dockerfile
+    ports:
+       - 6001:80
+       - 6011:443
+
+  microservicecourse.api.search:
+    image: ${DOCKER_REGISTRY-}microservicecourseapisearch
+    build:
+      context: .
+      dockerfile: MicroserviceCourse.Api.Search/Dockerfile
+    ports:
+       - 6004:80
+       - 6014:443
